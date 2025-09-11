@@ -1,11 +1,16 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
-    <menuitem id="menu_hospital_root"
-              name="HMS"
-    />
+  <data>
+    <!-- Root Menu -->
+    <menuitem id="menu_hospital_root" name="Hospital"/>
 
+    <!-- Patients Parent Menu -->
+    <menuitem id="menu_hospital_patient" name="Patients" parent="menu_hospital_root"/>
 
+    <!-- Children Patients -->
+    <menuitem id="menu_children_patients" name="Children Patients" parent="menu_hospital_patient" action="tushar_hospital.action_children_patients"/>
 
-
-
+    <!-- Adult Patients -->
+    <menuitem id="menu_adult_patients" name="Adult Patients" parent="menu_hospital_patient" action="tushar_hospital.action_adult_patients"/>
+  </data>
 </odoo>

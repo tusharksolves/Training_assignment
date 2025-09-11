@@ -1,0 +1,15 @@
+# models/doctor.py
+from odoo import models, fields
+
+class Doctor(models.Model):
+    _name = 'hospital.doctor'
+    _description = 'Doctor Master'
+
+    name = fields.Char(string="Name", required=True)
+    specialization = fields.Char(string="Specialization")
+    doctor_type = fields.Selection([
+        ('children', "Children's Doctor"),
+        ('general', "General Doctor")
+    ], string="Doctor Type", required=True, default='general')
+    user_id = fields.Many2one('res.users', string='Related User')  # Link to Odoo user
+    patient_ids = fields.One2many('hospital.patient', 'doctor_id', string="Patients")

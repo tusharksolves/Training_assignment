@@ -4,7 +4,11 @@
     "category": "Hospital",
     "licence":"LGPL-3",
     "data":[
-        "views/menu.xml"
-    ]
+        "security/ir.model.access.csv",
+        "views/patient_views.xml",
+        "views/menu.xml",
+    ],
+    'installable': True,
+    'application': True,
 
 }
