@@ -16,15 +16,17 @@
         <field name="view_id" ref="view_hospital_patient_list"/>
     </record>
 
-    <!-- Tree View -->
+    <!-- list View -->
     <record id="view_hospital_patient_list" model="ir.ui.view">
-        <field name="name">hospital.patient.tree</field>
+        <field name="name">hospital.patient.list</field>
         <field name="model">hospital.patient</field>
         <field name="arch" type="xml">
             <list string="Patients">
                 <field name="name"/>
                 <field name="age"/>
                 <field name="gender"/>
+                <field name="disease" />
+
             </list>
         </field>
     </record>
@@ -35,14 +37,38 @@
         <field name="model">hospital.patient</field>
         <field name="arch" type="xml">
             <form string="Patient">
+                <header>
+                    <button name="action_book_appointment"
+                            string="Book Appointment"
+                            type="object"
+                            class="btn-primary"/>
+                </header>
                 <sheet>
-                    <group>
-                        <field name="name"/>
-                        <field name="age"/>
-                        <field name="gender"/>
-                    </group>
+                    <notebook>
+                        <page string="Patient Info">
+                            <group>
+                                <field name="name"/>
+                                <field name="dob"/>
+                                <field name="age" readonly="1"/>
+                                <field name="gender"/>
+                                <field name="disease" />
+
+                            </group>
+                        </page>
+                        <page string="Appointments">
+                            <field name="appointment_ids" >
+<!--                                1<list editable="bottom">-->
+<!--                                    <field name="appointment_date"/>-->
+<!--                                    <field name="doctor_id"/>-->
+<!--&lt;!&ndash;                                    <field name="notes"/>&ndash;&gt;-->
+<!--                                </list>-->
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
     </record>
+
+
 </odoo>

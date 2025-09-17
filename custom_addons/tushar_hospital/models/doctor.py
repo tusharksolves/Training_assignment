@@ -11,5 +11,10 @@ class Doctor(models.Model):
         ('children', "Children's Doctor"),
         ('general', "General Doctor")
     ], string="Doctor Type", required=True, default='general')
-    user_id = fields.Many2one('res.users', string='Related User')  # Link to Odoo user
+    # user_id = fields.Many2one('res.users', string='Related User')  # Link to Odoo user
     patient_ids = fields.One2many('hospital.patient', 'doctor_id', string="Patients")
+    appointment_ids = fields.One2many(
+        'hospital.appointment', 'doctor_id', string="Appointments"
+    )
+
+
