@@ -4,9 +4,9 @@
     "category": "Hospital",
     "licence":"LGPL-3",
     "data":[
-        # 'security/groups.xml',
+        'security/groups.xml',
         'security/ir.model.access.csv',
-        # 'security/rules.xml',
+        'security/rules.xml',
         'views/patient_views.xml',
         'views/menu.xml',
         'views/hospital_appointment_view.xml',

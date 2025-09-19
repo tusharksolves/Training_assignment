@@ -51,6 +51,7 @@
                   name="Doctors"
                   parent="menu_hospital_root"
                   action="action_doctor"
+                  groups="tushar_hospital.group_hospital_admin,tushar_hospital.group_hospital_doctor"
                   sequence="20"/>
 
 </odoo>

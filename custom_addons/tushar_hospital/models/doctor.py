@@ -16,5 +16,6 @@ class Doctor(models.Model):
     appointment_ids = fields.One2many(
         'hospital.appointment', 'doctor_id', string="Appointments"
     )
+    user_id = fields.Many2one('res.users', string="Related User", required=False)
 
 

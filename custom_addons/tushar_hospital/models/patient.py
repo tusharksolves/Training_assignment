@@ -13,9 +13,19 @@ class Patient(models.Model):
     age = fields.Integer(string="Age", compute='_compute_age', store=True)
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')], string="Gender",required=True)
     disease = fields.Char(string="Diseases", required=True)
+    email = fields.Char(string="Email Address",required=True)
+    phone = fields.Char(string="Phone Number",required=True)
     appointment_ids = fields.One2many('hospital.appointment', 'patient_id', string="Appointments")
-    # user_id = fields.Many2one('res.users', string="Related User", required=False)
+    user_id = fields.Many2one('res.users', string="Related User", required=False)
     doctor_id = fields.Many2one('hospital.doctor', string="Assigned Doctor")
+    # Many2many relationship to diseases
+    disease_ids = fields.Many2many(
+        'hospital.disease',
+        'patient_disease_rel',
+        'patient_id',
+        'disease_id',
+        string='Diseases'
+    )
 
     @api.depends('dob')
     def _compute_age(self):

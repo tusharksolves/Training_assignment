@@ -25,7 +25,11 @@
                 <field name="name"/>
                 <field name="age"/>
                 <field name="gender"/>
-                <field name="disease" />
+                <field name="email"/>
+                <field name="phone"/>
+
+<!--                <field name="disease" />-->
+                <field name="disease_ids" widget="many2many_tags" />
 
             </list>
         </field>
@@ -51,7 +55,11 @@
                                 <field name="dob"/>
                                 <field name="age" readonly="1"/>
                                 <field name="gender"/>
-                                <field name="disease" />
+                                <field name="email"/>
+                                <field name="phone"/>
+
+<!--                                <field name="disease" />-->
+                                <field name="disease_ids" widget="many2many_tags" />
 
                             </group>
                         </page>
