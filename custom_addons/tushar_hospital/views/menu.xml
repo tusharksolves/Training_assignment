@@ -23,6 +23,7 @@
                   action="action_hospital_appointment"
                   sequence="10"/>
 
+
         <!-- Action for Appointment list + Form View -->
         <record id="action_hospital_appointment" model="ir.actions.act_window">
             <field name="name">Appointments</field>

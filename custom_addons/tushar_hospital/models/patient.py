@@ -3,7 +3,6 @@ from datetime import date
 from odoo.exceptions import ValidationError
 
 
-
 class Patient(models.Model):
     _name = 'hospital.patient'
     _description = 'Patient Master'
@@ -55,6 +54,19 @@ class Patient(models.Model):
                 'default_patient_id': self.id,
             }
         }
+    def action_open_cancel_wizard(self):
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'res_model': 'hospital.appointment.cancel.wizard',
+            'view_mode': 'form',
+            'target': 'new',
+            'context': {
+                'default_appointment_id': self.id,
+            }
+        }
+
+
 class HospitalAppointment(models.Model):
     _name = 'hospital.appointment'
     _description = 'Hospital Appointment'
@@ -64,6 +76,7 @@ class HospitalAppointment(models.Model):
     # notes = fields.Text(string="Notes")
     doctor_id = fields.Many2one('hospital.doctor', string='Doctor', required=True)
 
+    cancel_reason = fields.Text(string='Cancellation Reason')
 
     @api.constrains('patient_id', 'doctor_id', 'appointment_date')
     def _check_same_day_appointment(self):
@@ -82,5 +95,6 @@ class HospitalAppointment(models.Model):
                         raise ValidationError(
                             "This patient already has an appointment with this doctor on the same date."
                         )
+
 
 

@@ -8,6 +8,7 @@
         'security/groups.xml',
         'security/ir.model.access.csv',
         'security/rules.xml',
+        'wizard/cancel_appointment_view.xml',
         'views/patient_views.xml',
         'views/menu.xml',
         'views/hospital_appointment_view.xml',

@@ -27,8 +27,6 @@
                 <field name="gender"/>
                 <field name="email"/>
                 <field name="phone"/>
-
-<!--                <field name="disease" />-->
                 <field name="disease_ids" widget="many2many_tags" />
 
             </list>
@@ -46,6 +44,10 @@
                             string="Book Appointment"
                             type="object"
                             class="btn-primary"/>
+                    <button name="action_open_cancel_wizard"
+                            string="Cancel Appointment"
+                            type="object"
+                            class="btn-danger"/>
                 </header>
                 <sheet>
                     <notebook>
@@ -57,19 +59,12 @@
                                 <field name="gender"/>
                                 <field name="email"/>
                                 <field name="phone"/>
-
-<!--                                <field name="disease" />-->
                                 <field name="disease_ids" widget="many2many_tags" />
 
                             </group>
                         </page>
                         <page string="Appointments">
                             <field name="appointment_ids" >
-<!--                                1<list editable="bottom">-->
-<!--                                    <field name="appointment_date"/>-->
-<!--                                    <field name="doctor_id"/>-->
-<!--&lt;!&ndash;                                    <field name="notes"/>&ndash;&gt;-->
-<!--                                </list>-->
                             </field>
                         </page>
                     </notebook>

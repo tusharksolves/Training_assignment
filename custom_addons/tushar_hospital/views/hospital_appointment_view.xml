@@ -9,7 +9,6 @@
                         <field name="patient_id"/>
                         <field name="appointment_date"/>
                         <field name="doctor_id"/>
-<!--                        <field name="notes"/>-->
                     </group>
                 </sheet>
             </form>
@@ -23,7 +22,6 @@
                 <field name="patient_id"/>
                 <field name="appointment_date"/>
                 <field name="doctor_id"/>
-<!--                <field name="notes"/>-->
             </list>
         </field>
     </record>
