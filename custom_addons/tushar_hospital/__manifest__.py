@@ -13,7 +13,9 @@
         'views/menu.xml',
         'views/hospital_appointment_view.xml',
         'views/doctor_views.xml',
-        'views/view_order_form.xml'
+        'views/view_order_form.xml',
+        'report/report_view.xml',
+        'report/report_template.xml'
     ],
     'installable': True,
     'application': True,

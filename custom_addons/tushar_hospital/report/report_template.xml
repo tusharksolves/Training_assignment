@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_patient_details">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <t t-foreach="docs" t-as="doc">
+                        <div class="page">
+                            <br/>
+                            <h2>Patient Details Report</h2>
+                            <table class="table table-sm">
+                                <tbody>
+                                    <tr>
+                                        <th>Name:</th>
+                                        <td><span t-field="doc.name"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Date of Birth:</th>
+                                        <td><span t-field="doc.dob"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Age:</th>
+                                        <td><span t-field="doc.age"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Gender:</th>
+                                        <td><span t-field="doc.gender"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Email:</th>
+                                        <td><span t-field="doc.email"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Phone:</th>
+                                        <td><span t-field="doc.phone"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

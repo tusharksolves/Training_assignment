@@ -1,0 +1,5 @@
+<odoo>
+    <template  id="custom_login" inherit_id="web.login">
+        
+    </template>
+</odoo>

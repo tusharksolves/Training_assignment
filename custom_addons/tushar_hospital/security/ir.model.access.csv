@@ -20,4 +20,4 @@ access_hospital_disease_admin,access.hospital.disease.admin,model_hospital_disea
 access_hospital_disease_doctor,access.hospital.disease.doctor,model_hospital_disease,tushar_hospital.group_hospital_doctor,1,0,0,0
 access_hospital_disease_patient,access.hospital.disease.patient,model_hospital_disease,tushar_hospital.group_hospital_patient,1,0,0,0
 
-access_cancel_wizard_user,access_cancel_wizard_user,model_hospital_appointment_cancel_wizard,,1,1,1,0
+access_cancel_wizard_user,access_cancel_wizard_user,model_hospital_appointment_cancel_wizard,,1,1,1,1

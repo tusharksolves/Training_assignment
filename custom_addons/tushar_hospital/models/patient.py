@@ -26,6 +26,11 @@ class Patient(models.Model):
         string='Diseases'
     )
 
+    # def action_generate_pdf(self):
+    #     pass
+    #     # return self.env.ref('your_module.action_report_patient_details').report_action(self)
+    #
+
     @api.depends('dob')
     def _compute_age(self):
         for rec in self:
