@@ -1,0 +1,139 @@
+<odoo>
+    <!-- list View -->
+    <record id="view_hospital_patient_list" model="ir.ui.view">
+        <field name="name">hospital.patient.list</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <list string="Patients">
+                <field name="name"/>
+                <field name="age"/>
+                <field name="gender"/>
+                <field name="email"/>
+                <field name="phone"/>
+                <field name="disease_ids" widget="many2many_tags" />
+            </list>
+        </field>
+    </record>
+
+<!--    kanban view-->
+    <record id="view_hospital_patient_kanban" model="ir.ui.view">
+        <field name="name">hospital.patient.kanban</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_example">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click o_kanban_record">
+                            <strong>
+                                <field name="name"/>
+                            </strong>
+                            <div>
+                                <field name="age"/>
+                                years old
+                            </div>
+                            <div>
+                                <field name="gender"/>
+                            </div>
+                            <div>
+                                <field name="email"/>
+                            </div>
+                            <div>
+                                <field name="phone"/>
+                            </div>
+                            <div>
+                                <field name="disease_ids" widget="many2many_tags"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+<!--    pivot view-->
+    <record id="view_hospital_patient_pivot" model="ir.ui.view">
+        <field name="name">hospital.patient.pivot</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <pivot string="Patient Analysis">
+                <field name="gender" type="row"/>
+                <field name="disease_ids" type="col"/>
+<!--                <field name="id" type="measure" aggregate="count" string="Patient Count"/>-->
+
+            </pivot>
+        </field>
+    </record>
+
+<!--    graph view-->
+    <record id="view_hospital_patient_graph" model="ir.ui.view">
+        <field name="name">hospital.patient.graph</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <graph string="Patients by Gender" type="bar">
+                <field name="gender" type="row"/>
+                <field name="id" type="measure" string="Patient Count"/>
+            </graph>
+        </field>
+    </record>
+
+
+<!--    calendar view-->
+    <record id="view_hospital_patient_calendar" model="ir.ui.view">
+        <field name="name">hospital.patient.calendar</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <calendar string="Patients Calendar" date_start="dob">
+                <field name="name"/>
+                <field name="gender"/>
+                <field name="age"/>
+            </calendar>
+        </field>
+    </record>
+
+
+
+    <!-- Form View -->
+    <record id="view_hospital_patient_form" model="ir.ui.view">
+        <field name="name">hospital.patient.form</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <form string="Patient">
+                <header>
+                    <button name="action_book_appointment"
+                            string="Book Appointment"
+                            type="object"
+                            class="btn-primary"/>
+                    <button name="action_open_cancel_wizard"
+                            string="Cancel Appointment"
+                            type="object"
+                            class="btn-danger"/>
+                    <field name="status" widget="statusbar" readonly="1"/>
+
+                </header>
+                <sheet>
+                    <notebook>
+                        <page string="Patient Info">
+                            <group>
+                                <field name="name"/>
+                                <field name="dob"/>
+                                <field name="age" readonly="1"/>
+                                <field name="gender"/>
+                                <field name="email"/>
+                                <field name="phone"/>
+                                <field name="disease_ids" widget="many2many_tags" />
+                            </group>
+                        </page>
+                        <page string="Appointments">
+                            <field name="appointment_ids" >
+                            </field>
+                        </page>
+                    </notebook>
+
+                </sheet>
+                <chatter/>
+
+
+            </form>
+        </field>
+    </record>
+</odoo>

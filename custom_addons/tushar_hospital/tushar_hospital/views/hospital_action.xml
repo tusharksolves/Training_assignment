@@ -1,0 +1,40 @@
+<odoo>
+    <data>
+        <record id="action_children_patients" model="ir.actions.act_window">
+            <field name="name">Children Patients</field>
+            <field name="res_model">hospital.patient</field>
+            <field name="view_mode">list,kanban,form,pivot,calendar,graph</field>
+            <field name="domain">[('age', '&lt;', 18)]</field>
+            <field name="view_id" ref="view_hospital_patient_list"/>
+        </record>
+
+        <record id="action_adult_patients" model="ir.actions.act_window">
+            <field name="name">Adult Patients</field>
+            <field name="res_model">hospital.patient</field>
+            <field name="view_mode">list,kanban,form,pivot,calendar,graph</field>
+            <field name="domain">[('age', '&gt;=', 18)]</field>
+            <field name="view_id" ref="view_hospital_patient_list"/>
+        </record>
+
+        <record id="action_all_patients" model="ir.actions.act_window">
+            <field name="name">Patients</field>
+            <field name="res_model">hospital.patient</field>
+            <field name="view_mode">list,kanban,form,pivot,calendar,graph</field>
+<!--            <field name="domain">[('age', '&lt;', 18)]</field>-->
+            <field name="view_id" ref="view_hospital_patient_list"/>
+        </record>
+
+
+        <record id="action_hospital_appointment" model="ir.actions.act_window">
+            <field name="name">Appointments</field>
+            <field name="res_model">hospital.appointment</field>
+            <field name="view_mode">list,form,calendar</field>
+        </record>
+
+        <record id="action_doctor" model="ir.actions.act_window">
+            <field name="name">Doctors</field>
+            <field name="res_model">hospital.doctor</field>
+            <field name="view_mode">list,form</field>
+        </record>
+    </data>
+</odoo>

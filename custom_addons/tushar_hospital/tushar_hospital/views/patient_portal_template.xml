@@ -1,0 +1,11 @@
+<odoo>
+    <template id="patient_portal_template" name="Patient Portal Page">
+        <t t-call="portal.layout">
+            <div class="container">
+                <h2>Hello <t t-esc="patient.name"/></h2>
+                <p>Age: <t t-esc="patient.age"/></p>
+                <p>Gender: <t t-esc="patient.gender"/></p>
+            </div>
+        </t>
+    </template>
+</odoo>
