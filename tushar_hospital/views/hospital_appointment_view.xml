@@ -1,0 +1,67 @@
+<odoo>
+    <record id="view_hospital_appointment_form" model="ir.ui.view">
+        <field name="name">hospital.appointment.form</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <form string="Appointment">
+                <sheet>
+                    <group>
+                        <field name="patient_id"/>
+                        <field name="appointment_date"/>
+                        <field name="doctor_id"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_hospital_appointment_search" model="ir.ui.view">
+        <field name="name">hospital.appointment.search</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <search string="Search Appointments">
+                <field name="patient_id"/>
+                <field name="doctor_id"/>
+                <field name="appointment_date"/>
+                <filter name="today" string="Today" domain="[('appointment_date', '&gt;=', context_today()), ('appointment_date', '&lt;=', context_today())]"/>
+
+                <!-- Group by -->
+                <group expand="1" string="Group By">
+                    <filter name="group_by_date" string="Date" context="{'group_by':'appointment_date'}"/>
+                    <filter name="group_by_doctor" string="Doctor" context="{'group_by':'doctor_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="view_hospital_appointment_list" model="ir.ui.view">
+        <field name="name">hospital.appointment.list</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <list string="Appointments">
+                <field name="patient_id"/>
+                <field name="appointment_date"/>
+                <field name="doctor_id"/>
+            </list>
+        </field>
+    </record>
+
+    <!--    calendar view-->
+    <record id="view_hospital_appointment_calendar" model="ir.ui.view">
+        <field name="name">hospital.appointment.calendar</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <calendar string="Patients Calendar" date_start="appointment_date">
+                <field name="patient_id"/>
+                <field name="appointment_date"/>
+                <field name="doctor_id"/>
+            </calendar>
+        </field>
+    </record>
+
+
+
+
+</odoo>

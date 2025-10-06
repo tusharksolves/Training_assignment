@@ -1,0 +1,8 @@
+<odoo>
+    <template id="custom_login" inherit_id="web.login">
+        <xpath expr="//form" position="inside">
+            <input type="hidden" name="redirect" t-att-value="'/my/patient/dashboard'"/>
+            <input type="hidden" name="redirect" t-att-value="'/my/patient/dashboard'"/>
+        </xpath>
+    </template>
+</odoo>

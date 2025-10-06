@@ -1,0 +1,36 @@
+<odoo>
+    <!-- Wizard Form -->
+    <record id="view_custom_order_line_wizard_form" model="ir.ui.view">
+        <field name="name">custom.order.line.wizard.form</field>
+        <field name="model">custom.order.line.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Custom Order Line Wizard">
+                <group>
+                    <field name="sale_order_id" readonly="1"/>
+                </group>
+                <field name="wizard_line_ids">
+                    <list editable="bottom">
+                        <field name="product_id"/>
+                        <field name="product_uom_qty"/>
+                        <field name="price_unit"/>
+                        <field name="qty_delivered"/>
+                        <field name="qty_invoiced"/>
+                        <field name="price_subtotal"/>
+                    </list>
+                </field>
+                <footer>
+                    <button string="Save Lines" type="object" name="action_save_custom_lines" class="btn-primary"/>
+                    <button string="Cancel" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Optional: Action (for debugging or menu use) -->
+    <record id="action_custom_order_line_wizard" model="ir.actions.act_window">
+        <field name="name">Custom Order Line Wizard</field>
+        <field name="res_model">custom.order.line.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>
